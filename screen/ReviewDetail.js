@@ -1,19 +1,32 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native'
-import { globalStyles } from '../styles/global'
+import { View, StyleSheet, Text, Button, Image } from 'react-native'
+import { globalStyles, images } from '../styles/global'
+import Card from '../shared/Card'
 
 export default function ReviewDetail({ navigation }) {
+  const rating = navigation.getParam('rating')
+
   return (
     <View style={globalStyles.container}>
-      <Text>{navigation.getParam('title')}</Text>
-      <Text>{navigation.getParam('body')}</Text>
-      <Text>{navigation.getParam('rating')}</Text>
+      <Card>
+        <Text>{navigation.getParam('title')}</Text>
+        <Text>{navigation.getParam('body')}</Text>
+        <View style={styles.rating}>
+          <Text>Rating: </Text>
+          <Image source={images.ratings[rating]} />
+        </View>
+      </Card>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24
+  rating: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#eee'
   }
 })

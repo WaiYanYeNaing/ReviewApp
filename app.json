@@ -25,6 +25,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.lingonsaft.myapp",
+      "version": 1,
+      "permission": [],
+      "icon": "./assets/icon.png"
     }
   }
 }
